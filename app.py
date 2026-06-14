@@ -19,7 +19,12 @@ import uuid
 
 app = Flask(__name__)
 app.secret_key = 'nayepankh_foundation_2024'
-DB_FILE = 'nayepankh.db'
+
+# Support for Vercel's read-only filesystem
+if os.environ.get('VERCEL'):
+    DB_FILE = '/tmp/nayepankh.db'
+else:
+    DB_FILE = 'nayepankh.db'
 
 # ─── Security Setup ─────────────────────────────────────────────────────────
 
