@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery — NayePankh Foundation{% endblock %}
+{% block meta_description %}Browse photos from NayePankh Foundation's events, programs, and community drives across India.{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<header class="page-header">
+    <div class="container">
+        <span class="overline" style="-webkit-text-fill-color: var(--primary-300);">Gallery</span>
+        <h1 class="heading-xl">Moments of<br><span class="serif-accent" style="background: linear-gradient(135deg, var(--primary-400), var(--accent-400)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Impact & Joy</span></h1>
+        <p class="body-lg">A visual journey through our work — every picture tells a story of hope, kindness, and transformation.</p>
+        <div class="page-breadcrumb">
+            <a href="/">Home</a>
+            <span class="separator">/</span>
+            <span>Gallery</span>
+        </div>
+    </div>
+</header>
+
+<!-- Gallery -->
+<section class="section">
+    <div class="container">
+        <div class="gallery-masonry">
+            <div class="gallery-item animate-on-scroll">
+                <img src="{{ url_for('static', filename='images/education_program.png') }}" alt="Education Program">
+                <div class="gallery-overlay">
+                    <div>
+                        <h4>Education Program</h4>
+                        <p>Teaching sessions at community centers</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll animate-delay-1">
+                <img src="{{ url_for('static', filename='images/food_distribution.png') }}" alt="Food Distribution">
+                <div class="gallery-overlay">
+                    <div>
+                        <h4>Annapurna Drive</h4>
+                        <p>Serving meals to those in need</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll animate-delay-2">
+                <img src="{{ url_for('static', filename='images/volunteers_helping.png') }}" alt="Volunteers">
+                <div class="gallery-overlay">
+                    <div>
+                        <h4>Our Volunteers</h4>
+                        <p>The heart and soul of NayePankh</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="{{ url_for('static', filename='images/health_hygiene.png') }}" alt="Health Camp">
+                <div class="gallery-overlay">
+                    <div>
+                        <h4>Swasthya Initiative</h4>
+                        <p>Health awareness in rural areas</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll animate-delay-1">
+                <img src="{{ url_for('static', filename='images/animal_welfare.png') }}" alt="Animal Welfare">
+                <div class="gallery-overlay">
+                    <div>
+                        <h4>Paws & Care</h4>
+                        <p>Caring for stray animals</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll animate-delay-2">
+                <img src="{{ url_for('static', filename='images/hero_children.png') }}" alt="Children">
+                <div class="gallery-overlay">
+                    <div>
+                        <h4>Smiles of Hope</h4>
+                        <p>The children who inspire us daily</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="{{ url_for('static', filename='images/team_group.png') }}" alt="Team">
+                <div class="gallery-overlay">
+                    <div>
+                        <h4>Team NayePankh</h4>
+                        <p>Young changemakers united for good</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll animate-delay-1">
+                <img src="{{ url_for('static', filename='images/education_program.png') }}" alt="Classroom">
+                <div class="gallery-overlay">
+                    <div>
+                        <h4>Learning Together</h4>
+                        <p>Creating a brighter future through education</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll animate-delay-2">
+                <img src="{{ url_for('static', filename='images/food_distribution.png') }}" alt="Community Kitchen">
+                <div class="gallery-overlay">
+                    <div>
+                        <h4>Community Kitchen</h4>
+                        <p>Preparing meals with love and care</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close">✕</span>
+    <img id="lightboxImg" src="" alt="Gallery image">
+</div>
+
+{% endblock %}

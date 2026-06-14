@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}Donate — NayePankh Foundation{% endblock %}
+{% block meta_description %}Make a tax-deductible donation to NayePankh Foundation. Support education, nutrition, health, and animal welfare programs across India.{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<header class="page-header">
+    <div class="container">
+        <span class="overline" style="-webkit-text-fill-color: var(--primary-300);">Donate</span>
+        <h1 class="heading-xl">Your Generosity<br><span class="serif-accent" style="background: linear-gradient(135deg, var(--primary-400), var(--accent-400)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Changes Lives</span></h1>
+        <p class="body-lg">Every rupee you donate directly impacts someone's life. All donations are tax-deductible under Section 80G.</p>
+        <div class="page-breadcrumb">
+            <a href="/">Home</a>
+            <span class="separator">/</span>
+            <span>Donate</span>
+        </div>
+    </div>
+</header>
+
+<!-- Donation Section -->
+<section class="section">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--space-12); align-items: start;">
+            <!-- Donation Form -->
+            <div class="donate-card animate-on-scroll">
+                <h2 class="heading-md" style="margin-bottom: var(--space-3); color: var(--neutral-900);">Make a Donation</h2>
+                <p class="body-md" style="margin-bottom: var(--space-8);">Choose an amount or enter a custom amount to support our mission.</p>
+
+                <!-- Quick Amount Selection -->
+                <div class="donate-amounts">
+                    <button type="button" class="donate-amount-btn" data-amount="500">
+                        <div class="amount">₹500</div>
+                        <div class="desc">Feed a family for a week</div>
+                    </button>
+                    <button type="button" class="donate-amount-btn active" data-amount="1000">
+                        <div class="amount">₹1,000</div>
+                        <div class="desc">Educate a child for a month</div>
+                    </button>
+                    <button type="button" class="donate-amount-btn" data-amount="2500">
+                        <div class="amount">₹2,500</div>
+                        <div class="desc">Health kit for 10 women</div>
+                    </button>
+                    <button type="button" class="donate-amount-btn" data-amount="5000">
+                        <div class="amount">₹5,000</div>
+                        <div class="desc">Support a full program</div>
+                    </button>
+                </div>
+
+                <form id="donateForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="donateName">Full Name</label>
+                            <input type="text" class="form-input" id="donateName" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="donateEmail">Email Address</label>
+                            <input type="email" class="form-input" id="donateEmail" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="donateAmount">Donation Amount (₹)</label>
+                            <input type="number" class="form-input" id="donateAmount" value="1000" min="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="donateCause">Select Cause</label>
+                            <select class="form-select" id="donateCause">
+                                <option value="General">General Fund</option>
+                                <option value="Education">Education - Shiksha for All</option>
+                                <option value="Food">Nutrition - Annapurna Drive</option>
+                                <option value="Health">Health - Swasthya Initiative</option>
+                                <option value="Animals">Animal Welfare - Paws & Care</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="donateMessage">Message (Optional)</label>
+                        <textarea class="form-textarea" id="donateMessage" placeholder="Share why this cause matters to you..." style="min-height: 100px;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                        ❤️ Complete Donation
+                    </button>
+                    <p class="body-sm" style="text-align: center; margin-top: var(--space-4);">🔒 Secure payment • Tax receipt provided • 80G certified</p>
+                </form>
+            </div>
+
+            <!-- Sidebar -->
+            <div>
+                <div class="donate-sidebar animate-on-scroll animate-delay-2">
+                    <h3>Why Donate to NayePankh?</h3>
+                    <p>Your donation directly funds our ground-level programs. We ensure maximum transparency and impact with every rupee.</p>
+                    
+                    <div class="donate-benefit">
+                        <span>✅</span>
+                        <span>80G Tax Deduction Certificate</span>
+                    </div>
+                    <div class="donate-benefit">
+                        <span>✅</span>
+                        <span>100% Transparency in Fund Usage</span>
+                    </div>
+                    <div class="donate-benefit">
+                        <span>✅</span>
+                        <span>Regular Impact Reports</span>
+                    </div>
+                    <div class="donate-benefit">
+                        <span>✅</span>
+                        <span>Government Registered NGO</span>
+                    </div>
+                    <div class="donate-benefit">
+                        <span>✅</span>
+                        <span>12A & 80G Certified</span>
+                    </div>
+                    <div class="donate-benefit">
+                        <span>✅</span>
+                        <span>Direct Community Impact</span>
+                    </div>
+                </div>
+
+                <!-- Impact Stats -->
+                <div style="margin-top: var(--space-8); padding: var(--space-8); background: var(--neutral-50); border-radius: var(--radius-2xl);" class="animate-on-scroll animate-delay-3">
+                    <h3 class="heading-sm" style="margin-bottom: var(--space-6);">Your Impact in Numbers</h3>
+                    <div style="display: flex; flex-direction: column; gap: var(--space-5);">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
+                                <span class="body-sm">Education Goal</span>
+                                <span class="body-sm" style="color: var(--primary-500); font-weight: 600;">75%</span>
+                            </div>
+                            <div style="background: var(--neutral-200); border-radius: var(--radius-full); height: 8px; overflow: hidden;">
+                                <div style="background: linear-gradient(90deg, var(--primary-500), var(--accent-500)); width: 75%; height: 100%; border-radius: var(--radius-full);"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
+                                <span class="body-sm">Food Distribution</span>
+                                <span class="body-sm" style="color: var(--primary-500); font-weight: 600;">60%</span>
+                            </div>
+                            <div style="background: var(--neutral-200); border-radius: var(--radius-full); height: 8px; overflow: hidden;">
+                                <div style="background: linear-gradient(90deg, var(--primary-500), var(--accent-500)); width: 60%; height: 100%; border-radius: var(--radius-full);"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
+                                <span class="body-sm">Health Camps</span>
+                                <span class="body-sm" style="color: var(--primary-500); font-weight: 600;">45%</span>
+                            </div>
+                            <div style="background: var(--neutral-200); border-radius: var(--radius-full); height: 8px; overflow: hidden;">
+                                <div style="background: linear-gradient(90deg, var(--primary-500), var(--accent-500)); width: 45%; height: 100%; border-radius: var(--radius-full);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

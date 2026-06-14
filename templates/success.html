@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}Success — NayePankh Foundation{% endblock %}
+
+{% block extra_head %}
+<!-- Confetti JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<section class="section" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--neutral-50);">
+    <div class="container">
+        <div class="animate-on-scroll" style="background: white; padding: var(--space-12); border-radius: var(--radius-3xl); box-shadow: var(--shadow-xl); max-width: 700px; margin: 0 auto;">
+            
+            <div style="font-size: 4rem; margin-bottom: var(--space-4);">
+                {% if type == 'donation' %}❤️{% elif type == 'volunteer' %}🤝{% elif type == 'contact' %}✉️{% else %}🎉{% endif %}
+            </div>
+            
+            <h1 class="heading-lg" style="margin-bottom: var(--space-4);">
+                {% if type == 'donation' %}Thank You for Your Generosity!
+                {% elif type == 'volunteer' %}Welcome to the Team!
+                {% elif type == 'contact' %}Message Received!
+                {% elif type == 'newsletter' %}You're Subscribed!
+                {% else %}Success!{% endif %}
+            </h1>
+            
+            <p class="body-lg" style="margin-bottom: var(--space-8);">
+                {% if type == 'donation' %}
+                    Your donation of ₹{{ request_args.get('amount', '') }} will make a real difference in our {{ request_args.get('cause', 'general') }} programs. We are incredibly grateful for your support.
+                {% elif type == 'volunteer' %}
+                    Thank you for offering your time and skills. Our team will review your application and get back to you within 48 hours.
+                {% elif type == 'contact' %}
+                    Thank you for reaching out to us. We have received your message and our team will respond shortly.
+                {% elif type == 'newsletter' %}
+                    Thank you for subscribing to our newsletter. You'll now receive our latest updates, stories, and impact reports directly in your inbox.
+                {% endif %}
+            </p>
+            
+            <div class="cta-actions">
+                <a href="/" class="btn btn-primary btn-lg">Return to Home</a>
+                
+                {% if type == 'donation' and request_args.get('id') %}
+                <button id="downloadCertBtn" class="btn btn-outline btn-lg" style="border-color: var(--primary-500);">
+                    📄 Download 80G Certificate
+                </button>
+                {% endif %}
+            </div>
+            
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Fire confetti!
+    var duration = 3 * 1000;
+    var animationEnd = Date.now() + duration;
+    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    var interval = setInterval(function() {
+      var timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      var particleCount = 50 * (timeLeft / duration);
+      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+    }, 250);
+    
+    // Certificate Generation Logic
+    const downloadBtn = document.getElementById('downloadCertBtn');
+    if(downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({
+                orientation: "landscape",
+                unit: "mm",
+                format: "a4"
+            });
+            
+            // Draw Border
+            doc.setDrawColor(249, 115, 22); // primary-500
+            doc.setLineWidth(2);
+            doc.rect(10, 10, 277, 190);
+            
+            // Draw inner border
+            doc.setDrawColor(200, 200, 200);
+            doc.setLineWidth(0.5);
+            doc.rect(12, 12, 273, 186);
+            
+            // Title
+            doc.setTextColor(249, 115, 22);
+            doc.setFontSize(30);
+            doc.setFont("helvetica", "bold");
+            doc.text("NAYEPANKH FOUNDATION", 148, 40, { align: "center" });
+            
+            // Subtitle
+            doc.setTextColor(100, 100, 100);
+            doc.setFontSize(14);
+            doc.setFont("helvetica", "normal");
+            doc.text("DONATION CERTIFICATE & 80G RECEIPT", 148, 50, { align: "center" });
+            
+            // Certificate Content
+            doc.setTextColor(50, 50, 50);
+            doc.setFontSize(16);
+            doc.text("This is to certify that", 148, 80, { align: "center" });
+            
+            // Donor Name
+            const donorName = new URLSearchParams(window.location.search).get('name') || 'Generous Donor';
+            doc.setFontSize(26);
+            doc.setFont("helvetica", "bold");
+            doc.setTextColor(15, 23, 42);
+            doc.text(donorName, 148, 100, { align: "center" });
+            
+            // Amount
+            const amount = new URLSearchParams(window.location.search).get('amount') || '0';
+            doc.setFontSize(16);
+            doc.setFont("helvetica", "normal");
+            doc.setTextColor(50, 50, 50);
+            doc.text(`has generously donated an amount of Rs. ${amount}`, 148, 115, { align: "center" });
+            
+            // Cause
+            const cause = new URLSearchParams(window.location.search).get('cause') || 'General';
+            doc.text(`towards our ${cause} programs.`, 148, 125, { align: "center" });
+            
+            // Serial and Date
+            const certId = new URLSearchParams(window.location.search).get('id') || 'NP-000';
+            const date = new Date().toLocaleDateString('en-IN');
+            
+            doc.setFontSize(10);
+            doc.setTextColor(100, 100, 100);
+            doc.text(`Certificate No: ${certId}`, 30, 170);
+            doc.text(`Date: ${date}`, 30, 175);
+            doc.text(`PAN: AAAAA0000A | 80G Reg: 123456789`, 30, 180);
+            
+            // Authorized Signatory
+            doc.setDrawColor(50, 50, 50);
+            doc.line(220, 170, 260, 170);
+            doc.text("Authorized Signatory", 240, 175, { align: "center" });
+            
+            // Save PDF
+            doc.save(`NayePankh_Donation_${certId}.pdf`);
+        });
+    }
+});
+</script>
+{% endblock %}

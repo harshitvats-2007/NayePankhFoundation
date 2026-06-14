@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}Volunteer — NayePankh Foundation{% endblock %}
+{% block meta_description %}Join NayePankh Foundation as a volunteer. Make a difference in your community through education, food drives, and welfare programs.{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<header class="page-header">
+    <div class="container">
+        <span class="overline" style="-webkit-text-fill-color: var(--primary-300);">Volunteer</span>
+        <h1 class="heading-xl">Be the Change<br><span class="serif-accent" style="background: linear-gradient(135deg, var(--primary-400), var(--accent-400)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">You Wish to See</span></h1>
+        <p class="body-lg">Join thousands of passionate young volunteers creating impact across India. No experience needed — just a heart full of compassion.</p>
+        <div class="page-breadcrumb">
+            <a href="/">Home</a>
+            <span class="separator">/</span>
+            <span>Volunteer</span>
+        </div>
+    </div>
+</header>
+
+<!-- Benefits -->
+<section class="section" style="background: var(--neutral-50);">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <span class="overline">Why Volunteer?</span>
+            <h2 class="heading-lg">What You'll <span class="serif-accent">Gain</span></h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="volunteer-benefits">
+            <div class="volunteer-benefit animate-on-scroll">
+                <div class="volunteer-benefit-icon">📜</div>
+                <h4>Certificate of Recognition</h4>
+                <p>Receive an official volunteer certificate and letter of recommendation for your contribution.</p>
+            </div>
+            <div class="volunteer-benefit animate-on-scroll animate-delay-1">
+                <div class="volunteer-benefit-icon">🌍</div>
+                <h4>Real-World Impact</h4>
+                <p>Directly help communities in need and see the tangible results of your efforts.</p>
+            </div>
+            <div class="volunteer-benefit animate-on-scroll animate-delay-2">
+                <div class="volunteer-benefit-icon">👥</div>
+                <h4>Community & Network</h4>
+                <p>Connect with like-minded changemakers from across India and build lifelong friendships.</p>
+            </div>
+            <div class="volunteer-benefit animate-on-scroll animate-delay-1">
+                <div class="volunteer-benefit-icon">🚀</div>
+                <h4>Skill Development</h4>
+                <p>Develop leadership, communication, event management, and organizational skills.</p>
+            </div>
+            <div class="volunteer-benefit animate-on-scroll animate-delay-2">
+                <div class="volunteer-benefit-icon">🏆</div>
+                <h4>Internship Opportunities</h4>
+                <p>Top volunteers get internship opportunities in various roles across the organization.</p>
+            </div>
+            <div class="volunteer-benefit animate-on-scroll animate-delay-3">
+                <div class="volunteer-benefit-icon">❤️</div>
+                <h4>Personal Fulfillment</h4>
+                <p>Experience the joy of giving back and making a meaningful difference in someone's life.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Registration Form -->
+<section class="section">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: start;">
+            <div class="animate-on-scroll">
+                <span class="overline">Join Our Team</span>
+                <h2 class="heading-lg" style="margin-bottom: var(--space-4);">Register as a<br><span class="serif-accent">Volunteer</span></h2>
+                <p class="body-lg" style="margin-bottom: var(--space-8);">Fill out this form and our team will reach out to you with the next steps. We welcome volunteers of all ages and backgrounds.</p>
+
+                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-lg);">
+                    <img src="{{ url_for('static', filename='images/volunteers_helping.png') }}" alt="Volunteers" style="width: 100%; height: 300px; object-fit: cover;">
+                </div>
+
+                <div style="margin-top: var(--space-8); display: flex; gap: var(--space-6); flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: var(--space-2);">
+                        <span style="font-size: 1.5rem;">🕐</span>
+                        <span class="body-sm">Flexible hours</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--space-2);">
+                        <span style="font-size: 1.5rem;">📍</span>
+                        <span class="body-sm">Work from anywhere</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--space-2);">
+                        <span style="font-size: 1.5rem;">🎓</span>
+                        <span class="body-sm">No experience needed</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-card animate-on-scroll animate-delay-2">
+                <h3 class="heading-sm" style="margin-bottom: var(--space-6);">Volunteer Registration</h3>
+                <form id="volunteerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="volName">Full Name *</label>
+                            <input type="text" class="form-input" id="volName" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="volEmail">Email Address *</label>
+                            <input type="email" class="form-input" id="volEmail" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="volPhone">Phone Number *</label>
+                            <input type="tel" class="form-input" id="volPhone" placeholder="+91 XXXXX XXXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="volCity">City *</label>
+                            <input type="text" class="form-input" id="volCity" placeholder="Your city" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="volInterest">Area of Interest *</label>
+                        <select class="form-select" id="volInterest" required>
+                            <option value="">Select your interest</option>
+                            <option value="Education">Education & Mentorship</option>
+                            <option value="Food">Food Distribution</option>
+                            <option value="Health">Health & Hygiene Camps</option>
+                            <option value="Animals">Animal Welfare</option>
+                            <option value="Fundraising">Fundraising</option>
+                            <option value="Social Media">Social Media & Content</option>
+                            <option value="Events">Event Management</option>
+                            <option value="All">Open to All Areas</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="volMessage">Why do you want to volunteer?</label>
+                        <textarea class="form-textarea" id="volMessage" placeholder="Tell us about yourself and why you'd like to join..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                        🙋 Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

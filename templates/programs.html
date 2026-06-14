@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+
+{% block title %}Our Programs — NayePankh Foundation{% endblock %}
+{% block meta_description %}Explore NayePankh Foundation's programs in education, food distribution, health & hygiene, animal welfare, and community development.{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<header class="page-header">
+    <div class="container">
+        <span class="overline" style="-webkit-text-fill-color: var(--primary-300);">Our Programs</span>
+        <h1 class="heading-xl">Creating Impact<br><span class="serif-accent" style="background: linear-gradient(135deg, var(--primary-400), var(--accent-400)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">That Lasts</span></h1>
+        <p class="body-lg">Every program is designed to create sustainable, measurable change in the lives of those who need it most.</p>
+        <div class="page-breadcrumb">
+            <a href="/">Home</a>
+            <span class="separator">/</span>
+            <span>Programs</span>
+        </div>
+    </div>
+</header>
+
+<!-- Programs Grid -->
+<section class="section">
+    <div class="container">
+        <!-- Education -->
+        <div class="about-grid animate-on-scroll" style="margin-bottom: var(--space-24);">
+            <div class="about-image-stack">
+                <div class="about-image-main">
+                    <img src="{{ url_for('static', filename='images/education_program.png') }}" alt="Education Program">
+                </div>
+                <div class="about-experience-badge">
+                    <div class="number">5K+</div>
+                    <div class="label">Students</div>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="overline">📚 Education</span>
+                <h2 class="heading-lg">Shiksha for All</h2>
+                <p class="body-lg">Our flagship education program provides free tutoring, school supplies, mentorship, and digital literacy training to underprivileged children across India.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">📖</div>
+                        <div class="about-feature-text">
+                            <h4>Free Tutoring</h4>
+                            <p>Weekly sessions by trained volunteer tutors covering all subjects.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🎒</div>
+                        <div class="about-feature-text">
+                            <h4>School Supply Drives</h4>
+                            <p>Distribution of books, stationery, uniforms, and backpacks.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">💻</div>
+                        <div class="about-feature-text">
+                            <h4>Digital Literacy</h4>
+                            <p>Basic computer skills and internet safety for the digital age.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Food -->
+        <div class="about-grid animate-on-scroll" style="margin-bottom: var(--space-24);">
+            <div class="about-content" style="order: -1;">
+                <span class="overline">🍽️ Nutrition</span>
+                <h2 class="heading-lg">Annapurna Drive</h2>
+                <p class="body-lg">Ensuring no one goes to bed hungry. Our regular food distribution drives serve nutritious meals to homeless individuals, daily wage workers, and families in need.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🥘</div>
+                        <div class="about-feature-text">
+                            <h4>Daily Meal Programs</h4>
+                            <p>Hot, nutritious meals served at community kitchens across multiple cities.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">📦</div>
+                        <div class="about-feature-text">
+                            <h4>Ration Kits</h4>
+                            <p>Monthly ration kits with essentials for families below the poverty line.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🌾</div>
+                        <div class="about-feature-text">
+                            <h4>Emergency Relief</h4>
+                            <p>Rapid food response during natural disasters and crisis situations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image-stack">
+                <div class="about-image-main">
+                    <img src="{{ url_for('static', filename='images/food_distribution.png') }}" alt="Food Distribution">
+                </div>
+                <div class="about-experience-badge">
+                    <div class="number">1L+</div>
+                    <div class="label">Meals Served</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Health -->
+        <div class="about-grid animate-on-scroll" style="margin-bottom: var(--space-24);">
+            <div class="about-image-stack">
+                <div class="about-image-main">
+                    <img src="{{ url_for('static', filename='images/health_hygiene.png') }}" alt="Health & Hygiene">
+                </div>
+                <div class="about-experience-badge">
+                    <div class="number">15K+</div>
+                    <div class="label">Kits Given</div>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="overline">🏥 Health & Hygiene</span>
+                <h2 class="heading-lg">Swasthya Initiative</h2>
+                <p class="body-lg">Breaking taboos and creating awareness around menstrual hygiene, while providing free sanitary products and conducting health camps in underserved areas.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🩺</div>
+                        <div class="about-feature-text">
+                            <h4>Health Camps</h4>
+                            <p>Free medical checkups, vaccination drives, and health education sessions.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🩹</div>
+                        <div class="about-feature-text">
+                            <h4>Hygiene Kits</h4>
+                            <p>Distribution of sanitary napkins, soaps, and hygiene essentials.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">📢</div>
+                        <div class="about-feature-text">
+                            <h4>Awareness Campaigns</h4>
+                            <p>Community sessions on menstrual hygiene, nutrition, and preventive healthcare.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animal Welfare -->
+        <div class="about-grid animate-on-scroll">
+            <div class="about-content" style="order: -1;">
+                <span class="overline">🐾 Animal Welfare</span>
+                <h2 class="heading-lg">Paws & Care</h2>
+                <p class="body-lg">Compassion extends to all living beings. Our animal welfare program feeds and cares for stray animals, organizes sterilization drives, and promotes responsible pet ownership.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🐕</div>
+                        <div class="about-feature-text">
+                            <h4>Stray Feeding Drives</h4>
+                            <p>Regular feeding of stray dogs and cats across neighborhoods.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">💉</div>
+                        <div class="about-feature-text">
+                            <h4>Vaccination & Sterilization</h4>
+                            <p>Organizing anti-rabies vaccination and sterilization camps.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🏠</div>
+                        <div class="about-feature-text">
+                            <h4>Adoption Drives</h4>
+                            <p>Finding loving forever homes for rescued animals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image-stack">
+                <div class="about-image-main">
+                    <img src="{{ url_for('static', filename='images/animal_welfare.png') }}" alt="Animal Welfare">
+                </div>
+                <div class="about-experience-badge">
+                    <div class="number">25K+</div>
+                    <div class="label">Animals Fed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content animate-on-scroll">
+            <h2 class="heading-lg">Support a Cause<br><span class="serif-accent">Close to Your Heart</span></h2>
+            <p class="body-lg">Choose the program you want to support and make a direct impact on the lives of those who need it most.</p>
+            <div class="cta-actions">
+                <a href="/donate" class="btn btn-white btn-lg">❤️ Donate Now</a>
+                <a href="/volunteer" class="btn btn-outline btn-lg" style="border-color: rgba(255,255,255,0.4); color: white;">Volunteer With Us →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

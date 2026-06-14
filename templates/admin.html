@@ -1,0 +1,413 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard — NayePankh Foundation{% endblock %}
+{% block meta_description %}Admin dashboard for NayePankh Foundation.{% endblock %}
+
+{% block extra_head %}
+<style>
+    .admin-header {
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        padding: calc(80px + var(--space-8)) 0 var(--space-8);
+        color: white;
+    }
+    
+    .admin-tabs {
+        display: flex;
+        gap: var(--space-4);
+        margin-top: var(--space-6);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 1px;
+    }
+    
+    .admin-tab {
+        padding: var(--space-3) var(--space-6);
+        font-family: var(--font-display);
+        font-weight: 600;
+        color: rgba(255,255,255,0.6);
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        transition: all var(--transition-fast);
+    }
+    
+    .admin-tab:hover {
+        color: white;
+    }
+    
+    .admin-tab.active {
+        color: var(--primary-400);
+        border-bottom-color: var(--primary-400);
+    }
+    
+    .admin-content {
+        padding: var(--space-12) 0;
+        background: var(--neutral-50);
+        min-height: 50vh;
+    }
+    
+    .tab-pane {
+        display: none;
+    }
+    
+    .tab-pane.active {
+        display: block;
+        animation: fadeInUp 0.5s ease-out;
+    }
+    
+    /* Stats Grid */
+    .admin-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-6);
+        margin-bottom: var(--space-10);
+    }
+    
+    .admin-stat-card {
+        background: white;
+        padding: var(--space-6);
+        border-radius: var(--radius-2xl);
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+    }
+    
+    .admin-stat-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: var(--radius-xl);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+    
+    .admin-stat-info h4 {
+        color: var(--neutral-500);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: var(--space-1);
+    }
+    
+    .admin-stat-info .value {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--neutral-900);
+        line-height: 1;
+    }
+    
+    /* Table Styles */
+    .admin-table-container {
+        background: white;
+        border-radius: var(--radius-2xl);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+    }
+    
+    .admin-table-header {
+        padding: var(--space-6);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--neutral-200);
+    }
+    
+    .admin-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .admin-table th, .admin-table td {
+        padding: var(--space-4) var(--space-6);
+        text-align: left;
+        border-bottom: 1px solid var(--neutral-100);
+    }
+    
+    .admin-table th {
+        font-family: var(--font-display);
+        font-weight: 600;
+        color: var(--neutral-500);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        background: var(--neutral-50);
+    }
+    
+    .admin-table td {
+        font-size: 0.9rem;
+        color: var(--neutral-700);
+    }
+    
+    .admin-table tr:hover td {
+        background: var(--neutral-50);
+    }
+    
+    .badge {
+        padding: 4px 10px;
+        border-radius: var(--radius-full);
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+    
+    .badge-success { background: var(--accent-100); color: var(--accent-700); }
+    .badge-info { background: var(--secondary-100); color: var(--secondary-700); }
+</style>
+{% endblock %}
+
+{% block content %}
+<header class="admin-header">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+                <h1 class="heading-lg">Admin Dashboard</h1>
+                <p class="body-md" style="color: rgba(255,255,255,0.7);">Manage volunteers, donations, contacts, and newsletter subscribers.</p>
+            </div>
+            <a href="/logout" class="btn btn-outline btn-sm" style="border-color: rgba(255,255,255,0.3); color: white;">Logout</a>
+        </div>
+        
+        <div class="admin-tabs">
+            <div class="admin-tab active" data-target="overview">Overview</div>
+            <div class="admin-tab" data-target="volunteers">Volunteers</div>
+            <div class="admin-tab" data-target="donations">Donations</div>
+            <div class="admin-tab" data-target="contacts">Messages</div>
+            <div class="admin-tab" data-target="newsletter">Newsletter</div>
+        </div>
+    </div>
+</header>
+
+<div class="admin-content">
+    <div class="container">
+        
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-pane active">
+            <div class="admin-stats-grid">
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon" style="background: var(--primary-100); color: var(--primary-600);">🙋</div>
+                    <div class="admin-stat-info">
+                        <h4>Total Volunteers</h4>
+                        <div class="value">{{ stats.total_volunteers }}</div>
+                    </div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon" style="background: var(--accent-100); color: var(--accent-600);">₹</div>
+                    <div class="admin-stat-info">
+                        <h4>Total Donations</h4>
+                        <div class="value">₹{{ "{:,.0f}".format(stats.total_donations) }}</div>
+                    </div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon" style="background: var(--secondary-100); color: var(--secondary-600);">✉️</div>
+                    <div class="admin-stat-info">
+                        <h4>Messages</h4>
+                        <div class="value">{{ stats.total_contacts }}</div>
+                    </div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon" style="background: #fce7f3; color: #db2777;">📰</div>
+                    <div class="admin-stat-info">
+                        <h4>Subscribers</h4>
+                        <div class="value">{{ stats.total_subscribers }}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-table-container">
+                <div class="admin-table-header">
+                    <h3 class="heading-sm">Recent Donations</h3>
+                    <a href="/admin/export/donations" class="btn btn-outline btn-sm">Export CSV</a>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Amount</th>
+                                <th>Cause</th>
+                                <th>Certificate ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for d in donations[:5] %}
+                            <tr>
+                                <td>{{ d.donated_at.split(' ')[0] }}</td>
+                                <td>{{ d.name }}</td>
+                                <td style="font-weight: 600; color: var(--accent-600);">₹{{ "{:,.0f}".format(d.amount) }}</td>
+                                <td><span class="badge badge-info">{{ d.cause }}</span></td>
+                                <td><code style="font-size: 0.8rem;">{{ d.certificate_id }}</code></td>
+                            </tr>
+                            {% else %}
+                            <tr><td colspan="5" style="text-align: center; padding: var(--space-8);">No donations yet.</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Volunteers Tab -->
+        <div id="volunteers" class="tab-pane">
+            <div class="admin-table-container">
+                <div class="admin-table-header">
+                    <h3 class="heading-sm">Registered Volunteers</h3>
+                    <a href="/admin/export/volunteers" class="btn btn-outline btn-sm">Export CSV</a>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>City</th>
+                                <th>Interest</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for v in volunteers %}
+                            <tr>
+                                <td>{{ v.registered_at.split(' ')[0] }}</td>
+                                <td style="font-weight: 500; color: var(--neutral-900);">{{ v.name }}</td>
+                                <td>{{ v.email }}<br><span style="color: var(--neutral-500); font-size: 0.8rem;">{{ v.phone }}</span></td>
+                                <td>{{ v.city }}</td>
+                                <td><span class="badge badge-success">{{ v.interest }}</span></td>
+                                <td style="max-width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ v.message }}</td>
+                            </tr>
+                            {% else %}
+                            <tr><td colspan="6" style="text-align: center; padding: var(--space-8);">No volunteers yet.</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Donations Tab -->
+        <div id="donations" class="tab-pane">
+            <div class="admin-table-container">
+                <div class="admin-table-header">
+                    <h3 class="heading-sm">All Donations</h3>
+                    <a href="/admin/export/donations" class="btn btn-outline btn-sm">Export CSV</a>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name / Email</th>
+                                <th>Amount</th>
+                                <th>Cause</th>
+                                <th>Certificate ID</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for d in donations %}
+                            <tr>
+                                <td>{{ d.donated_at.split(' ')[0] }}</td>
+                                <td><div style="font-weight: 500; color: var(--neutral-900);">{{ d.name }}</div><div style="color: var(--neutral-500); font-size: 0.8rem;">{{ d.email }}</div></td>
+                                <td style="font-weight: 600; color: var(--accent-600);">₹{{ "{:,.0f}".format(d.amount) }}</td>
+                                <td><span class="badge badge-info">{{ d.cause }}</span></td>
+                                <td><code style="font-size: 0.8rem;">{{ d.certificate_id }}</code></td>
+                                <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ d.message }}</td>
+                            </tr>
+                            {% else %}
+                            <tr><td colspan="6" style="text-align: center; padding: var(--space-8);">No donations yet.</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contacts Tab -->
+        <div id="contacts" class="tab-pane">
+            <div class="admin-table-container">
+                <div class="admin-table-header">
+                    <h3 class="heading-sm">Contact Messages</h3>
+                    <a href="/admin/export/contacts" class="btn btn-outline btn-sm">Export CSV</a>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for c in contacts %}
+                            <tr>
+                                <td>{{ c.submitted_at.split(' ')[0] }}</td>
+                                <td style="font-weight: 500; color: var(--neutral-900);">{{ c.name }}</td>
+                                <td>{{ c.email }}</td>
+                                <td><span class="badge badge-info">{{ c.subject }}</span></td>
+                                <td>{{ c.message }}</td>
+                            </tr>
+                            {% else %}
+                            <tr><td colspan="5" style="text-align: center; padding: var(--space-8);">No messages yet.</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter Tab -->
+        <div id="newsletter" class="tab-pane">
+            <div class="admin-table-container">
+                <div class="admin-table-header">
+                    <h3 class="heading-sm">Newsletter Subscribers</h3>
+                    <a href="/admin/export/newsletter" class="btn btn-outline btn-sm">Export CSV</a>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Date Subscribed</th>
+                                <th>Email Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for n in newsletter %}
+                            <tr>
+                                <td>{{ n.subscribed_at.split(' ')[0] }}</td>
+                                <td style="font-weight: 500; color: var(--neutral-900);">{{ n.email }}</td>
+                            </tr>
+                            {% else %}
+                            <tr><td colspan="2" style="text-align: center; padding: var(--space-8);">No subscribers yet.</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.admin-tab');
+    const panes = document.querySelectorAll('.tab-pane');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            panes.forEach(p => p.classList.remove('active'));
+
+            tab.classList.add('active');
+            const target = document.getElementById(tab.getAttribute('data-target'));
+            if (target) target.classList.add('active');
+        });
+    });
+});
+</script>
+{% endblock %}

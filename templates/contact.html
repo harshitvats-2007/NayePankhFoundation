@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us — NayePankh Foundation{% endblock %}
+{% block meta_description %}Get in touch with NayePankh Foundation. Reach out for partnerships, donations, volunteering, or any queries.{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<header class="page-header">
+    <div class="container">
+        <span class="overline" style="-webkit-text-fill-color: var(--primary-300);">Contact Us</span>
+        <h1 class="heading-xl">Let's Connect &<br><span class="serif-accent" style="background: linear-gradient(135deg, var(--primary-400), var(--accent-400)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Create Change Together</span></h1>
+        <p class="body-lg">Have questions, ideas, or want to collaborate? We'd love to hear from you.</p>
+        <div class="page-breadcrumb">
+            <a href="/">Home</a>
+            <span class="separator">/</span>
+            <span>Contact</span>
+        </div>
+    </div>
+</header>
+
+<!-- Contact Section -->
+<section class="section">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Contact Information -->
+            <div class="animate-on-scroll">
+                <span class="overline">Reach Out</span>
+                <h2 class="heading-lg" style="margin-bottom: var(--space-4);">Get in <span class="serif-accent">Touch</span></h2>
+                <p class="body-lg" style="margin-bottom: var(--space-8);">Whether you want to volunteer, donate, partner with us, or simply learn more about our work, don't hesitate to reach out.</p>
+
+                <div class="contact-info-cards">
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">📧</div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>contact@nayepankh.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">📞</div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+91-8318500748</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">📍</div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Pan-India Operations</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">🌐</div>
+                        <div>
+                            <h4>Website</h4>
+                            <p>www.nayepankh.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div class="contact-map" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--neutral-100), var(--neutral-200));">
+                    <div style="text-align: center; color: var(--neutral-500);">
+                        <span style="font-size: 3rem;">🗺️</span>
+                        <p style="margin-top: var(--space-2); font-weight: 500;">Operating across 50+ cities in India</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-card animate-on-scroll animate-delay-2">
+                <h3 class="heading-sm" style="margin-bottom: var(--space-2);">Send us a Message</h3>
+                <p class="body-sm" style="margin-bottom: var(--space-6);">We typically respond within 24 hours.</p>
+
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="contactName">Your Name *</label>
+                            <input type="text" class="form-input" id="contactName" placeholder="Full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="contactEmail">Email Address *</label>
+                            <input type="email" class="form-input" id="contactEmail" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="contactSubject">Subject *</label>
+                        <select class="form-select" id="contactSubject" required>
+                            <option value="">Select a topic</option>
+                            <option value="General">General Inquiry</option>
+                            <option value="Volunteering">Volunteering</option>
+                            <option value="Donations">Donations & Sponsorships</option>
+                            <option value="Partnerships">Corporate Partnerships</option>
+                            <option value="Media">Media & Press</option>
+                            <option value="Feedback">Feedback & Suggestions</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="contactMessage">Your Message *</label>
+                        <textarea class="form-textarea" id="contactMessage" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                        ✉️ Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section" style="background: var(--neutral-50);">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <span class="overline">FAQs</span>
+            <h2 class="heading-lg">Frequently Asked <span class="serif-accent">Questions</span></h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="container-sm">
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+                <div class="animate-on-scroll" style="background: white; padding: var(--space-6); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm);">
+                    <h4 class="heading-sm" style="margin-bottom: var(--space-2); color: var(--neutral-900);">How can I volunteer?</h4>
+                    <p class="body-md">Visit our <a href="/volunteer" style="color: var(--primary-500); font-weight: 500;">Volunteer page</a> and fill out the registration form. Our team will reach out with next steps within 48 hours.</p>
+                </div>
+
+                <div class="animate-on-scroll animate-delay-1" style="background: white; padding: var(--space-6); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm);">
+                    <h4 class="heading-sm" style="margin-bottom: var(--space-2); color: var(--neutral-900);">Are donations tax-deductible?</h4>
+                    <p class="body-md">Yes! NayePankh Foundation is 80G certified. All donations are eligible for tax deduction under Section 80G of the Income Tax Act, 1961.</p>
+                </div>
+
+                <div class="animate-on-scroll animate-delay-2" style="background: white; padding: var(--space-6); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm);">
+                    <h4 class="heading-sm" style="margin-bottom: var(--space-2); color: var(--neutral-900);">Can I start a chapter in my city?</h4>
+                    <p class="body-md">Absolutely! We're always looking for passionate individuals to lead local chapters. Contact us to learn about our chapter leader program.</p>
+                </div>
+
+                <div class="animate-on-scroll animate-delay-3" style="background: white; padding: var(--space-6); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm);">
+                    <h4 class="heading-sm" style="margin-bottom: var(--space-2); color: var(--neutral-900);">How is my donation used?</h4>
+                    <p class="body-md">We maintain 100% transparency. Every donation directly funds our programs — education supplies, meals, hygiene kits, and animal care. We publish regular impact reports.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

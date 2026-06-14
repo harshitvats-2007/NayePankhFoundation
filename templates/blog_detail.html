@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} — NayePankh Foundation{% endblock %}
+{% block meta_description %}{{ post.title }} - Read more on the NayePankh Foundation blog.{% endblock %}
+
+{% block content %}
+<!-- Blog Hero -->
+<header class="page-header" style="padding-bottom: var(--space-20);">
+    <div class="container-sm">
+        <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-3); margin-bottom: var(--space-6);">
+            <span class="badge" style="background: var(--primary-500); color: white;">{{ post.category }}</span>
+            <span style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">•</span>
+            <span style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">{{ post.date }}</span>
+        </div>
+        
+        <h1 class="heading-xl" style="color: white; margin-bottom: var(--space-6); font-size: clamp(2rem, 5vw, 3.5rem);">{{ post.title }}</h1>
+        
+        <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-3);">
+            <div style="width: 40px; height: 40px; border-radius: var(--radius-full); background: var(--primary-600); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                {{ post.author[0] }}
+            </div>
+            <span style="color: rgba(255,255,255,0.8); font-weight: 500;">By {{ post.author }}</span>
+        </div>
+    </div>
+</header>
+
+<section class="section" style="padding-top: 0; margin-top: -100px; position: relative; z-index: 2;">
+    <div class="container-sm">
+        <!-- Hero Image -->
+        <div style="border-radius: var(--radius-3xl); overflow: hidden; box-shadow: var(--shadow-xl); margin-bottom: var(--space-12); height: 450px;">
+            <img src="{{ url_for('static', filename='images/' + post.image) }}" alt="{{ post.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 250px; gap: var(--space-12); align-items: start;">
+            
+            <!-- Article Body -->
+            <article class="blog-content" style="background: white; padding: var(--space-8); border-radius: var(--radius-2xl); box-shadow: var(--shadow-sm);">
+                <div style="font-size: 1.1rem; line-height: 1.8; color: var(--neutral-700);">
+                    {{ post.content | safe }}
+                </div>
+                
+                <!-- Share -->
+                <div style="margin-top: var(--space-10); padding-top: var(--space-6); border-top: 1px solid var(--neutral-200); display: flex; align-items: center; gap: var(--space-4);">
+                    <span style="font-weight: 600; font-family: var(--font-display);">Share this post:</span>
+                    <button class="btn btn-icon" style="background: #1DA1F2; color: white;">🐦</button>
+                    <button class="btn btn-icon" style="background: #25D366; color: white;">💬</button>
+                    <button class="btn btn-icon" style="background: var(--neutral-200); color: var(--neutral-700);" onclick="navigator.clipboard.writeText(window.location.href); showToast('Link copied!')">🔗</button>
+                </div>
+            </article>
+            
+            <!-- Sidebar -->
+            <aside>
+                <a href="/blog" class="btn btn-outline" style="width: 100%; margin-bottom: var(--space-8);">← Back to Blog</a>
+                
+                <h3 class="heading-sm" style="margin-bottom: var(--space-4);">Related Posts</h3>
+                <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+                    {% for p in related %}
+                    <a href="/blog/{{ p.slug }}" style="display: flex; gap: var(--space-3); align-items: center; background: white; padding: var(--space-3); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); transition: transform var(--transition-fast);">
+                        <div style="width: 70px; height: 70px; border-radius: var(--radius-md); overflow: hidden; flex-shrink: 0;">
+                            <img src="{{ url_for('static', filename='images/' + p.image) }}" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.9rem; font-weight: 600; color: var(--neutral-900); line-height: 1.3; margin-bottom: var(--space-1); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ p.title }}</h4>
+                            <span style="font-size: 0.75rem; color: var(--neutral-500);">{{ p.date }}</span>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </aside>
+            
+        </div>
+    </div>
+</section>
+
+{% endblock %}

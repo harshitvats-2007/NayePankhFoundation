@@ -1,0 +1,350 @@
+{% extends "base.html" %}
+
+{% block title %}NayePankh Foundation — Wings of Change | Empowering Communities{% endblock %}
+{% block meta_description %}NayePankh Foundation is a youth-led nonprofit uplifting 2,00,000+ lives through education, food, hygiene, and animal welfare across India.{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+    <div class="hero-bg">
+        <img src="{{ url_for('static', filename='images/hero_children.png') }}" alt="Children studying">
+    </div>
+    
+    <!-- Floating Particles -->
+    <div class="hero-particles">
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+    </div>
+
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                Youth-Led Nonprofit Since 2021
+            </div>
+            
+            <h1 class="hero-title">
+                Giving Wings of<br>
+                <span class="gradient-text">Hope & Love</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                We are a community of young changemakers dedicated to uplifting underprivileged lives through education, nutrition, hygiene awareness, and compassion for all living beings.
+            </p>
+            
+            <div class="hero-actions">
+                <a href="/donate" class="btn btn-primary btn-lg">
+                    ❤️ Donate Now
+                </a>
+                <a href="/about" class="btn btn-outline btn-lg" style="border-color: rgba(255,255,255,0.3); color: white;">
+                    Our Story →
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number"><span class="counter" data-count="200000" data-suffix="+">0</span></div>
+                    <div class="hero-stat-label">Lives Impacted</div>
+                </div>
+                <div class="hero-stat" style="padding-left: 2.5rem;">
+                    <div class="hero-stat-number"><span class="counter" data-count="25000" data-suffix="+">0</span></div>
+                    <div class="hero-stat-label">Animals Helped</div>
+                </div>
+                <div class="hero-stat" style="padding-left: 2.5rem;">
+                    <div class="hero-stat-number"><span class="counter" data-count="50" data-suffix="+">0</span></div>
+                    <div class="hero-stat-label">Cities Covered</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Side Image -->
+    <div class="hero-image-side">
+        <div class="hero-image-card">
+            <img src="{{ url_for('static', filename='images/volunteers_helping.png') }}" alt="Volunteers in action">
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-mouse"></div>
+        <span>Scroll to explore</span>
+    </div>
+</section>
+
+<!-- Impact Stats Bar -->
+<section class="impact-bar">
+    <div class="container">
+        <div class="impact-grid">
+            <div class="impact-item animate-on-scroll">
+                <div class="impact-icon orange">📚</div>
+                <div class="impact-number"><span class="counter" data-count="5000" data-suffix="+">0</span></div>
+                <div class="impact-label">Children Educated</div>
+            </div>
+            <div class="impact-item animate-on-scroll animate-delay-1">
+                <div class="impact-icon green">🍽️</div>
+                <div class="impact-number"><span class="counter" data-count="100000" data-suffix="+">0</span></div>
+                <div class="impact-label">Meals Distributed</div>
+            </div>
+            <div class="impact-item animate-on-scroll animate-delay-2">
+                <div class="impact-icon blue">🏥</div>
+                <div class="impact-number"><span class="counter" data-count="15000" data-suffix="+">0</span></div>
+                <div class="impact-label">Hygiene Kits Given</div>
+            </div>
+            <div class="impact-item animate-on-scroll animate-delay-3">
+                <div class="impact-icon rose">🐾</div>
+                <div class="impact-number"><span class="counter" data-count="25000" data-suffix="+">0</span></div>
+                <div class="impact-label">Animals Fed</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About / Mission Section -->
+<section class="about-section section" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-image-stack animate-on-scroll">
+                <div class="about-image-main">
+                    <img src="{{ url_for('static', filename='images/education_program.png') }}" alt="Education Program">
+                </div>
+                <div class="about-image-secondary">
+                    <img src="{{ url_for('static', filename='images/food_distribution.png') }}" alt="Food Distribution">
+                </div>
+                <div class="about-experience-badge">
+                    <div class="number">5+</div>
+                    <div class="label">Years of Impact</div>
+                </div>
+            </div>
+
+            <div class="about-content animate-on-scroll animate-delay-2">
+                <span class="overline">Who We Are</span>
+                <h2 class="heading-lg">Empowering Communities,<br><span class="serif-accent">Transforming Lives</span></h2>
+                <p class="body-lg">
+                    Born during the COVID-19 pandemic in 2021 by a group of passionate high school students, NayePankh Foundation has grown into one of India's largest youth-led nonprofit organizations, touching over 2,00,000 lives across 50+ cities.
+                </p>
+
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🎓</div>
+                        <div class="about-feature-text">
+                            <h4>Holistic Education</h4>
+                            <p>Providing quality education and mentorship to underprivileged children.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🤝</div>
+                        <div class="about-feature-text">
+                            <h4>Youth-Led Movement</h4>
+                            <p>Run by young changemakers creating real impact in their communities.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">✅</div>
+                        <div class="about-feature-text">
+                            <h4>Government Registered</h4>
+                            <p>12A & 80G certified under Income Tax Act, 1961.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/about" class="btn btn-primary">Learn More About Us →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Programs Section -->
+<section class="programs-section section" id="programs">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <span class="overline">Our Initiatives</span>
+            <h2 class="heading-lg">Programs That Create<br><span class="serif-accent">Real Impact</span></h2>
+            <div class="section-divider"></div>
+            <p class="body-lg">Every initiative is designed to address the root causes of inequality and provide sustainable solutions for underprivileged communities.</p>
+        </div>
+
+        <div class="programs-grid">
+            <div class="program-card animate-on-scroll">
+                <div class="program-card-image">
+                    <img src="{{ url_for('static', filename='images/education_program.png') }}" alt="Education Program">
+                    <span class="program-card-tag">Education</span>
+                </div>
+                <div class="program-card-body">
+                    <h3 class="program-card-title">Shiksha for All</h3>
+                    <p class="program-card-desc">Providing holistic education, school supplies, and mentorship to underprivileged children, ensuring every child gets a chance to learn and grow.</p>
+                    <a href="/programs" class="program-card-link">Learn More →</a>
+                </div>
+            </div>
+
+            <div class="program-card animate-on-scroll animate-delay-1">
+                <div class="program-card-image">
+                    <img src="{{ url_for('static', filename='images/food_distribution.png') }}" alt="Food Distribution">
+                    <span class="program-card-tag">Nutrition</span>
+                </div>
+                <div class="program-card-body">
+                    <h3 class="program-card-title">Annapurna Drive</h3>
+                    <p class="program-card-desc">Regular food distribution drives to ensure no one goes to bed hungry. We've served over 1,00,000 meals to those in need across India.</p>
+                    <a href="/programs" class="program-card-link">Learn More →</a>
+                </div>
+            </div>
+
+            <div class="program-card animate-on-scroll animate-delay-2">
+                <div class="program-card-image">
+                    <img src="{{ url_for('static', filename='images/health_hygiene.png') }}" alt="Health & Hygiene">
+                    <span class="program-card-tag">Health</span>
+                </div>
+                <div class="program-card-body">
+                    <h3 class="program-card-title">Swasthya Initiative</h3>
+                    <p class="program-card-desc">Menstrual hygiene awareness campaigns, sanitary napkin distribution, health camps, and vaccination drives for underserved communities.</p>
+                    <a href="/programs" class="program-card-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section section">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <span class="overline" style="-webkit-text-fill-color: var(--primary-300);">Voices of Impact</span>
+            <h2 class="heading-lg">Stories That<br><span class="serif-accent">Inspire Change</span></h2>
+            <div class="section-divider"></div>
+            <p class="body-lg">Hear from the people whose lives have been touched by NayePankh's work.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">NayePankh gave my children a chance to go to school. The volunteers come every week to teach and inspire them. My kids now dream of becoming doctors and engineers.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">RS</div>
+                    <div class="testimonial-author-info">
+                        <h4>Rani Sharma</h4>
+                        <span>Parent, Education Program</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll animate-delay-1">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Volunteering with NayePankh has been the most fulfilling experience. The energy, the passion, and the impact we create together is truly remarkable.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AK</div>
+                    <div class="testimonial-author-info">
+                        <h4>Arjun Kumar</h4>
+                        <span>Volunteer, Delhi Chapter</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll animate-delay-2">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">The hygiene awareness sessions and free sanitary napkins have made a huge difference in our village. Women and girls feel more empowered and informed now.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">PD</div>
+                    <div class="testimonial-author-info">
+                        <h4>Priya Devi</h4>
+                        <span>Beneficiary, Health Program</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Impact Map -->
+<section class="section" style="background: var(--neutral-50); overflow: hidden; position: relative;">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <span class="overline">Our Reach Across India</span>
+            <h2 class="heading-lg">Impact <span class="serif-accent">Map</span></h2>
+            <div class="section-divider"></div>
+            <p class="body-lg">We are growing rapidly. Here is a snapshot of our active chapters and impact across major cities.</p>
+        </div>
+
+        <div style="position: relative; padding: var(--space-12) 0;">
+            <!-- Stylized India Map SVG as background element -->
+            <svg class="map-bg" viewBox="0 0 800 800" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 800px; height: auto; opacity: 0.05; z-index: 0;">
+                <path fill="currentColor" d="M366.5,70.5 C366.5,70.5 351,105 321,123 C291,141 247,159 233,184 C219,209 196,252 181,274 C166,296 114,357 101,373 C88,389 57,411 74,432 C91,453 103,467 122,465 C141,463 158,451 178,470 C198,489 201,539 217,556 C233,573 241,617 241,635 C241,653 263,736 281,756 C299,776 331,780 348,767 C365,754 366,725 369,692 C372,659 388,590 398,565 C408,540 435,463 463,446 C491,429 556,400 585,387 C614,374 693,313 718,285 C743,257 733,222 710,211 C687,200 644,188 625,188 C606,188 565,191 556,170 C547,149 536,134 523,123 C510,112 489,101 475,88 C461,75 423,54 406,47 C389,40 366.5,70.5 366.5,70.5 Z" />
+            </svg>
+
+            <div class="impact-map-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6); position: relative; z-index: 1;">
+                <div class="city-card animate-on-scroll">
+                    <h3 class="heading-sm">Delhi NCR</h3>
+                    <p class="body-sm" style="color: var(--neutral-500); margin-bottom: var(--space-3);">Headquarters</p>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--neutral-200); padding-top: var(--space-3);">
+                        <span style="font-weight: 600;">Lives Impacted</span>
+                        <span style="color: var(--primary-600); font-weight: bold;">50K+</span>
+                    </div>
+                </div>
+                <div class="city-card animate-on-scroll animate-delay-1">
+                    <h3 class="heading-sm">Mumbai</h3>
+                    <p class="body-sm" style="color: var(--neutral-500); margin-bottom: var(--space-3);">Active Chapter</p>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--neutral-200); padding-top: var(--space-3);">
+                        <span style="font-weight: 600;">Lives Impacted</span>
+                        <span style="color: var(--primary-600); font-weight: bold;">35K+</span>
+                    </div>
+                </div>
+                <div class="city-card animate-on-scroll animate-delay-2">
+                    <h3 class="heading-sm">Lucknow</h3>
+                    <p class="body-sm" style="color: var(--neutral-500); margin-bottom: var(--space-3);">Active Chapter</p>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--neutral-200); padding-top: var(--space-3);">
+                        <span style="font-weight: 600;">Lives Impacted</span>
+                        <span style="color: var(--primary-600); font-weight: bold;">25K+</span>
+                    </div>
+                </div>
+                <div class="city-card animate-on-scroll">
+                    <h3 class="heading-sm">Bangalore</h3>
+                    <p class="body-sm" style="color: var(--neutral-500); margin-bottom: var(--space-3);">Active Chapter</p>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--neutral-200); padding-top: var(--space-3);">
+                        <span style="font-weight: 600;">Lives Impacted</span>
+                        <span style="color: var(--primary-600); font-weight: bold;">20K+</span>
+                    </div>
+                </div>
+                <div class="city-card animate-on-scroll animate-delay-1">
+                    <h3 class="heading-sm">Jaipur</h3>
+                    <p class="body-sm" style="color: var(--neutral-500); margin-bottom: var(--space-3);">Active Chapter</p>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--neutral-200); padding-top: var(--space-3);">
+                        <span style="font-weight: 600;">Lives Impacted</span>
+                        <span style="color: var(--primary-600); font-weight: bold;">15K+</span>
+                    </div>
+                </div>
+                <div class="city-card animate-on-scroll animate-delay-2" style="background: var(--primary-50); border: 1px dashed var(--primary-300);">
+                    <h3 class="heading-sm" style="color: var(--primary-600);">+ 45 More Cities</h3>
+                    <p class="body-sm" style="color: var(--neutral-500); margin-bottom: var(--space-3);">And growing everyday</p>
+                    <a href="/volunteer" style="color: var(--primary-600); font-weight: 600; text-decoration: none; font-size: 0.9rem;">Start a chapter →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content animate-on-scroll">
+            <h2 class="heading-lg">Every Contribution<br>Creates <span class="serif-accent">Ripples of Change</span></h2>
+            <p class="body-lg">Your donation is tax-deductible under 80G. Join thousands of donors who believe in building a better India for all.</p>
+            <div class="cta-actions">
+                <a href="/donate" class="btn btn-white btn-lg">❤️ Make a Donation</a>
+                <a href="/volunteer" class="btn btn-outline btn-lg" style="border-color: rgba(255,255,255,0.4); color: white;">Join as Volunteer →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

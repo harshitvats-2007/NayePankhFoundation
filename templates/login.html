@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Login — NayePankh Foundation{% endblock %}
+
+{% block content %}
+<section class="section" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; background: var(--neutral-50);">
+    <div class="container-sm" style="max-width: 500px;">
+        <div class="contact-form-card" style="box-shadow: var(--shadow-xl);">
+            <div class="text-center" style="margin-bottom: var(--space-8);">
+                <h2 class="heading-md">Admin <span class="serif-accent">Login</span></h2>
+                <p class="body-sm" style="margin-top: var(--space-2);">Secure portal for NayePankh administrators.</p>
+            </div>
+
+            {% if error %}
+            <div style="background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--error); color: var(--error); padding: var(--space-3); margin-bottom: var(--space-6); border-radius: var(--radius-sm); font-size: 0.9rem;">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            <form method="POST" action="{{ url_for('login', next=request.args.get('next')) }}">
+                <div class="form-group">
+                    <label class="form-label" for="username">Username</label>
+                    <input type="text" id="username" name="username" class="form-input" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-input" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-4);">
+                    Login to Dashboard
+                </button>
+            </form>
+            
+            <div class="text-center" style="margin-top: var(--space-6);">
+                <a href="/" style="font-size: 0.85rem; color: var(--neutral-500); text-decoration: underline;">&larr; Back to Home</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

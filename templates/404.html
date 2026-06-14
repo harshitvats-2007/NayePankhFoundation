@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found — NayePankh Foundation{% endblock %}
+
+{% block content %}
+<section class="section" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+    <div class="container">
+        <h1 class="heading-xl" style="font-size: 8rem; color: var(--primary-100); margin-bottom: 0;">404</h1>
+        <h2 class="heading-md" style="margin-bottom: var(--space-4);">Oops! This page has flown away 🕊️</h2>
+        <p class="body-lg" style="margin-bottom: var(--space-8); max-width: 500px; margin-left: auto; margin-right: auto;">
+            We couldn't find the page you're looking for. It might have been moved or deleted.
+        </p>
+        <div class="cta-actions">
+            <a href="/" class="btn btn-primary btn-lg">Return Home</a>
+            <a href="/programs" class="btn btn-outline btn-lg">View Our Programs</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Blog — NayePankh Foundation{% endblock %}
+{% block meta_description %}Read latest stories, updates, and impact reports from NayePankh Foundation's work across India.{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<header class="page-header">
+    <div class="container">
+        <span class="overline" style="-webkit-text-fill-color: var(--primary-300);">Blog</span>
+        <h1 class="heading-xl">Stories of<br><span class="serif-accent" style="background: linear-gradient(135deg, var(--primary-400), var(--accent-400)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Hope & Impact</span></h1>
+        <p class="body-lg">Stay updated with our latest initiatives, success stories, and community highlights.</p>
+        <div class="page-breadcrumb">
+            <a href="/">Home</a>
+            <span class="separator">/</span>
+            <span>Blog</span>
+        </div>
+    </div>
+</header>
+
+<!-- Featured Post -->
+<section class="section-sm">
+    <div class="container">
+        {% if posts %}
+        {% set featured = posts[0] %}
+        <div class="animate-on-scroll" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-12); align-items: center; background: white; border-radius: var(--radius-3xl); overflow: hidden; box-shadow: var(--shadow-lg);">
+            <div style="height: 400px; overflow: hidden;">
+                <img src="{{ url_for('static', filename='images/' + featured.image) }}" alt="{{ featured.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: var(--space-10);">
+                <div style="display: flex; gap: var(--space-3); margin-bottom: var(--space-4);">
+                    <span style="background: var(--primary-50); color: var(--primary-600); padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600;">Featured</span>
+                    <span style="color: var(--neutral-400); font-size: 0.8rem; display: flex; align-items: center;">{{ featured.date }}</span>
+                </div>
+                <h2 class="heading-md" style="margin-bottom: var(--space-4); color: var(--neutral-900);">{{ featured.title }}</h2>
+                <p class="body-md" style="margin-bottom: var(--space-6);">{{ featured.content | striptags | truncate(150) }}</p>
+                <a href="/blog/{{ featured.slug }}" class="btn btn-primary">Read Full Story →</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Blog Grid -->
+<section class="section">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <span class="overline">Latest Posts</span>
+            <h2 class="heading-lg">Recent <span class="serif-accent">Updates</span></h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="blog-grid">
+            {% for post in posts[1:] %}
+            <div class="blog-card animate-on-scroll animate-delay-{{ loop.index0 % 3 }}">
+                <div class="blog-card-image">
+                    <img src="{{ url_for('static', filename='images/' + post.image) }}" alt="{{ post.title }}">
+                </div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="tag">{{ post.category }}</span>
+                        <span>{{ post.date }}</span>
+                    </div>
+                    <h3 class="blog-card-title">{{ post.title }}</h3>
+                    <p class="blog-card-excerpt">{{ post.content | striptags | truncate(120) }}</p>
+                    <a href="/blog/{{ post.slug }}" class="program-card-link">Read More →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content animate-on-scroll">
+            <h2 class="heading-lg">Have a Story<br><span class="serif-accent">Worth Sharing?</span></h2>
+            <p class="body-lg">If you've been impacted by NayePankh's work or want to share your volunteer experience, we'd love to feature your story.</p>
+            <div class="cta-actions">
+                <a href="/contact" class="btn btn-white btn-lg">✍️ Share Your Story</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}NayePankh Foundation - A youth-led nonprofit uplifting underprivileged communities through education, food, hygiene, and animal welfare across India.{% endblock %}">
+    <meta name="keywords" content="NayePankh, Foundation, NGO, nonprofit, education, charity, India, volunteer, donate">
+    <meta name="author" content="NayePankh Foundation">
+    <meta property="og:title" content="{% block og_title %}NayePankh Foundation — Wings of Change{% endblock %}">
+    <meta property="og:description" content="Empowering communities, transforming lives. Join us in creating a better tomorrow.">
+    <meta property="og:type" content="website">
+    <title>{% block title %}NayePankh Foundation — Wings of Change{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="mainNav">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="NayePankh Logo">
+                <span class="nav-brand-text">NayePankh</span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/programs" class="nav-link">Programs</a>
+                <a href="/gallery" class="nav-link">Gallery</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/volunteer" class="nav-link">Volunteer</a>
+                <a href="/contact" class="nav-link">Contact</a>
+                <a href="/donate" class="btn btn-primary btn-sm nav-cta">Donate Now</a>
+                
+                <!-- Theme Toggle -->
+                <div class="theme-switch-wrapper" style="margin-left: var(--space-4); display: flex; align-items: center;">
+                    <label class="theme-switch" for="themeToggle" style="position: relative; display: inline-block; width: 50px; height: 26px;">
+                        <input type="checkbox" id="themeToggle" style="opacity: 0; width: 0; height: 0;" aria-label="Toggle dark mode" />
+                        <div class="slider round" style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255,255,255,0.2); transition: .4s; border-radius: 34px; border: 1px solid rgba(255,255,255,0.3);">
+                            <span style="position: absolute; left: 4px; top: 3px; font-size: 12px; z-index: 1;">☀️</span>
+                            <span style="position: absolute; right: 4px; top: 3px; font-size: 12px; z-index: 1;">🌙</span>
+                            <div class="slider-circle" style="position: absolute; content: ''; height: 20px; width: 20px; left: 3px; bottom: 2px; background-color: white; transition: .4s; border-radius: 50%; z-index: 2; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h3>Stay Updated with Our Journey</h3>
+                    <p>Get the latest news, stories, and impact reports delivered to your inbox.</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="NayePankh Logo">
+                        <span class="nav-brand-text">NayePankh</span>
+                    </a>
+                    <p>A youth-led nonprofit organization dedicated to uplifting underprivileged communities across India through education, food, hygiene, and animal welfare.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/nayepankh_foundation/" target="_blank" aria-label="Instagram">📷</a>
+                        <a href="https://www.facebook.com/nayepankhfoundation/" target="_blank" aria-label="Facebook">📘</a>
+                        <a href="https://www.linkedin.com/company/nayepankh-foundation/" target="_blank" aria-label="LinkedIn">💼</a>
+                        <a href="https://twitter.com/NayePankh" target="_blank" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="/">Home</a>
+                    <a href="/about">About Us</a>
+                    <a href="/programs">Our Programs</a>
+                    <a href="/gallery">Gallery</a>
+                    <a href="/blog">Blog</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Get Involved</h4>
+                    <a href="/donate">Donate</a>
+                    <a href="/volunteer">Volunteer</a>
+                    <a href="/contact">Contact Us</a>
+                    <a href="#">Internships</a>
+                    <a href="#">Partnerships</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <a href="mailto:contact@nayepankh.com">📧 contact@nayepankh.com</a>
+                    <a href="tel:+918318500748">📞 +91-8318500748</a>
+                    <a href="#">📍 India (Pan-India Operations)</a>
+                    <a href="https://www.nayepankh.com" target="_blank">🌐 www.nayepankh.com</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; {{ year }} NayePankh Foundation. All rights reserved. | Registered under Societies Registration Act, 1860</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">12A & 80G Certified</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <!-- Toast Container -->
+    <div id="toastContainer"></div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
